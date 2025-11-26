@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllGames } from "../api/game-api";
 import { type Game } from "../objects/game";
 import GameCard from "../components/GameCard"
+import "../css/GamesPage.css"
 
 export function GamesPage() {
   const [games, setGames] = useState<Game[]>([]);
@@ -28,12 +29,12 @@ export function GamesPage() {
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-    <div className="w-full flex flex-col items-center p-10">
-      <h1 className="text-3xl font-bold mb-10">Games</h1>
+    <div className="games-page">
+      <h1 className="page-title">Games</h1>
       {games.length === 0 ? (
         <p>No games found.</p>
       ) : (
-        <div className="grid grid-cols-3 gap-16">
+        <div className="games-grid">
           {games.map((game) => (
             <GameCard key={game.id} title={game.title} />
           ))}
