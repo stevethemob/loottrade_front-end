@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Navigate to="/item-details" />}/>
-      <Route path="/item-details" element={<ItemDetails />} />
       <Route path="/" element={<Navigate to="/games" />}/>
       <Route path="/games" element={<GamesPage />} />
-      <Route path="/" element={<Navigate to="/gameOptions" />} />
-      <Route path="/gameOptions" element={<GameOptions />} />
+
+      <Route path="/item-details" element={<ItemDetails />} />
+
+      <Route path="/gameOptions/:gameId" element={<GameOptions />} /> 
 
       </Routes>
     </Router>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllGames } from "../api/game-api";
 import { type Game } from "../objects/game";
 import GameCard from "../components/GameCard"
@@ -36,7 +37,12 @@ export function GamesPage() {
       ) : (
         <div className="games-grid">
           {games.map((game) => (
+            <Link 
+              key={game.id} 
+              to={`/gameOptions/${game.id}`}>
+                
             <GameCard key={game.id} title={game.title} />
+            </Link>
           ))}
         </div>
       )

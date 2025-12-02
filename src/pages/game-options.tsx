@@ -1,7 +1,9 @@
 import React from "react";
 import "../css/GameOptions.css";
+import { useParams } from "react-router-dom";
 
-export default function App() {
+export default function GameOptions() {
+  const { gameId } = useParams();
   return (
     <div>
       <div className="account">account</div>
