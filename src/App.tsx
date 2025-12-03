@@ -3,6 +3,7 @@ import './App.css'
 import ItemDetails from "../src/pages/item-details";
 import { GamesPage } from "../src/pages/games";
 import GameOptions from "../src/pages/game-options";
+import Inventory from "../src/pages/inventory";
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       <Route path="/item-details" element={<ItemDetails />} />
 
       <Route path="/gameOptions/:gameId" element={<GameOptions />} /> 
+
+      <Route path="/inventory/:userId/:gameId" element={<Inventory />} />
 
       </Routes>
     </Router>
