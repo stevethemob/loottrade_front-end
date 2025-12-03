@@ -1,7 +1,7 @@
 import type { Item } from '../objects/item';
 
-export async function getItem(id: number): Promise<Item> {
-    const response = await fetch(`https://localhost:7215/item/${id}`);
+export async function getItem(itemId: number): Promise<Item> {
+    const response = await fetch(`https://localhost:7215/item/ByItemId/${itemId}`);
 
     if (!response.ok) {
         throw new Error("Failed to get Item");
