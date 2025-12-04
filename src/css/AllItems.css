@@ -1,0 +1,40 @@
+.item-grid-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 24px;
+}
+
+.item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.item-card {
+    width: 130px;
+    height: 130px;
+    background-color: #66676a;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.item-add {
+    background: grey;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}

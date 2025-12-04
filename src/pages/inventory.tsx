@@ -3,13 +3,6 @@ import { GetInventoryByUserId } from "../api/inventory-api";
 import type { Inventory } from "../objects/inventory";
 import "../css/Inventory.css";
 
-
-export interface Item {
-  id: string;
-  name: string;
-  description: string;
-}
-
 export default function Inventory() {
   const [inventory, setInventory] = useState<Inventory>();
   const [loading, setLoading] = useState(true);

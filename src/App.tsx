@@ -4,21 +4,23 @@ import ItemDetails from "../src/pages/item-details";
 import { GamesPage } from "../src/pages/games";
 import GameOptions from "../src/pages/game-options";
 import Inventory from "../src/pages/inventory";
+import AllItems from "../src/pages/items";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Navigate to="/games" />}/>
-      <Route path="/games" element={<GamesPage />} />
+        <Route path="/" element={<Navigate to="/games" />} />
+        <Route path="/games" element={<GamesPage />} />
 
-      <Route path="/item-details" element={<ItemDetails />} />
+        <Route path="/item-details" element={<ItemDetails />} />
 
-      <Route path="/gameOptions/:gameId" element={<GameOptions />} /> 
+        <Route path="/gameOptions/:gameId" element={<GameOptions />} />
 
-      <Route path="/inventory/:userId/:gameId" element={<Inventory />} />
+        <Route path="/inventory/:userId/:gameId" element={<Inventory />} />
 
+        <Route path="/items/:gameId" element={<AllItems />} />
       </Routes>
     </Router>
   )
