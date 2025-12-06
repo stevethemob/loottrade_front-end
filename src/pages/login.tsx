@@ -61,7 +61,7 @@ export default function Login() {
             </form>
 
 
-            <Link to="/signup" className="signup-link">Sign-up instead?</Link>
+            <Link to="/register" className="signup-link">Sign-up instead?</Link>
         </div>
     );
 }

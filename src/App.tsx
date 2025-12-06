@@ -6,6 +6,7 @@ import GameOptions from "../src/pages/game-options";
 import Inventory from "../src/pages/inventory";
 import AllItems from "../src/pages/items";
 import Login from "../src/pages/login";
+import Register from "../src/pages/register";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
 
         <Route path="/games" element={<GamesPage />} />
 
