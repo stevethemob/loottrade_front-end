@@ -1,10 +1,10 @@
 import type { Inventory } from '../objects/inventory'
 import type { Item } from '../objects/item';
 
-export async function GetInventoryByUserId(userId : number, gameId: number): Promise<Inventory> {
+export async function GetInventoryByUserId(userId: number, gameId: number): Promise<Inventory> {
     const response = await fetch(`https://localhost:7215/inventory/${userId}/${gameId}`);
-    console.log(response);
-    if (!response.ok){
+
+    if (!response.ok) {
         throw new Error("Failed to get inventory");
     }
 
@@ -15,4 +15,17 @@ export async function GetInventoryByUserId(userId : number, gameId: number): Pro
     }
 
     return inventory;
+}
+
+export async function AddItemToInventoryByUserIdAndItemId(userId: number, itemId: number): Promise<boolean> {
+    const response = await fetch(`https://localhost:7215/inventory/${userId}/${itemId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to add item");
+    }
+
+    return response.json();
 }

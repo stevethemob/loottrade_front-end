@@ -1,0 +1,52 @@
+.login-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 50px;
+font-family: Arial, sans-serif;
+}
+
+
+.title {
+font-size: 28px;
+margin-bottom: 10px;
+}
+
+
+.subtitle {
+margin-bottom: 40px;
+font-size: 18px;
+color: #333;
+}
+
+
+.login-form {
+display: flex;
+flex-direction: column;
+width: 300px;
+gap: 15px;
+}
+
+
+.input-field {
+padding: 12px;
+font-size: 16px;
+background: #d9d9d9;
+border: none;
+}
+
+
+.login-button {
+padding: 10px;
+background: #9c9c9c;
+border: none;
+font-size: 16px;
+cursor: pointer;
+}
+
+
+.signup-link {
+margin-top: 15px;
+font-size: 14px;
+color: #333;
+}

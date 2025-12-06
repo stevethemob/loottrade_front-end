@@ -5,13 +5,16 @@ import { GamesPage } from "../src/pages/games";
 import GameOptions from "../src/pages/game-options";
 import Inventory from "../src/pages/inventory";
 import AllItems from "../src/pages/items";
+import Login from "../src/pages/login";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/games" />} />
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+
         <Route path="/games" element={<GamesPage />} />
 
         <Route path="/item-details" element={<ItemDetails />} />
