@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { login } from "../api/user-api";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/login.css";
 
 
@@ -10,6 +10,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    const navigate = useNavigate();
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -19,6 +20,7 @@ export default function Login() {
 
         try {
             await login(username, password);
+            navigate("/games");
         } catch (err) {
             setError("Failed to log in");
         } finally {
@@ -55,9 +57,7 @@ export default function Login() {
                     className="input-field"
                 />
 
-                <Link to={`/games`}>
-                    <button type="submit" className="login-button" disabled={loading}>Log in</button>
-                </Link>
+                <button type="submit" className="login-button" disabled={loading}>Log in</button>
             </form>
 
 

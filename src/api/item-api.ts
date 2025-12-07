@@ -13,12 +13,17 @@ export async function getItem(itemId: number): Promise<Item> {
 }
 
 export async function getAllItems(gameId: number): Promise<Item[]> {
-    const response = await fetch(`https://localhost:7215/item/ByGame/${gameId}`);
+    const token = localStorage.getItem("token");
+    const response = await fetch(`https://localhost:7215/item/ByGame/${gameId}`, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
 
     if (!response.ok){
-        throw new Error("Failed to get all items");
+        throw new Error("Unauthorized.");
     }
 
-    const items = response.json()
+    const items = await response.json()
     return items;
 }

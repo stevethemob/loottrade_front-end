@@ -11,7 +11,7 @@ export async function registerUser(username: string, password: string, repeatedP
             password,
             repeatedPassword,
             email
-        })  
+        })
     })
 
     if (!response.ok) {
@@ -39,13 +39,23 @@ export async function registerUser(username: string, password: string, repeatedP
 }
 
 export async function login(username: string, password: string) {
-    const response = await fetch(`https://localhost:7215/user/login/${username}/${password}`)
+    const response = await fetch(`https://localhost:7215/user/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            Username: username,
+            Password: password
+        })
+    })
 
     if (!response.ok) {
-        throw new Error("login failed");
+        throw new Error("Login failed");
     }
 
-    const id: Number = await response.json();
-    return id;
+    const data = await response.json();
+    localStorage.setItem("token", data.token)
+    return data.token;
 }
 
