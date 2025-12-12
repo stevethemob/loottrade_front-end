@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { registerUser } from "../api/user-api";
-import "../css/Login.css";
+import "../css/login.css";
 
 
 export default function Signup() {
