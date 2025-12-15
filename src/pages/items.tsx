@@ -5,6 +5,7 @@ import type { Item } from "../objects/item";
 import { AddItemToInventoryByUserIdAndItemId } from "../api/inventory-api";
 import "../css/AllItems.css";
 
+
 export default function items() {
     const [items, setItems] = useState<Item[]>([])
     const [loading, setLoading] = useState(true);

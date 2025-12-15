@@ -7,6 +7,7 @@ import Inventory from "../src/pages/inventory";
 import AllItems from "../src/pages/items";
 import Login from "../src/pages/login";
 import Register from "../src/pages/register";
+import AllOffers from "../src/pages/all-offers";
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         <Route path="/inventory/:userId/:gameId" element={<Inventory />} />
 
         <Route path="/items/:gameId" element={<AllItems />} />
+
+        <Route path="/offers/:gameId" element={<AllOffers />} />
       </Routes>
     </Router>
   )

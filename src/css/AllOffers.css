@@ -1,0 +1,83 @@
+.page {
+    font-family: Arial, sans-serif;
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.title {
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+.account {
+    font-size: 16px;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.search {
+    width: 320px;
+    padding: 10px;
+    background: #bfbfbf;
+    border: none;
+    font-size: 14px;
+}
+
+.offers {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.offer-card {
+    display: flex;
+    background: #7a7c7f;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.image-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #7a7c7f;
+    border: 2px solid #444;
+    border-radius: 12px;
+    margin-right: 24px;
+}
+
+.offer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.posted {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.item-desc {
+    font-size: 15px;
+}
+
+.date {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #555;
+}
