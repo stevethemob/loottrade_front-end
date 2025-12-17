@@ -8,6 +8,7 @@ import AllItems from "../src/pages/items";
 import Login from "../src/pages/login";
 import Register from "../src/pages/register";
 import AllOffers from "../src/pages/all-offers";
+import AddOffer from "../src/pages/add-offer";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
         <Route path="/items/:gameId" element={<AllItems />} />
 
         <Route path="/offers/:gameId" element={<AllOffers />} />
+
+        <Route path="/addOffer/:gameId" element={<AddOffer />} />
       </Routes>
     </Router>
   )

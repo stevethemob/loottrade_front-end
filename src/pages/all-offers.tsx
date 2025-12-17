@@ -4,6 +4,7 @@ import { getOffersByGameId } from "../api/offer-api";
 import type { Offer } from "../objects/offer";
 import OfferCard from "../components/OfferCard";
 import "../css/AllOffers.css";
+import { Link } from "react-router-dom";
 
 export default function AllOffers() {
     const { gameId } = useParams<{ gameId: string }>();
@@ -43,6 +44,12 @@ export default function AllOffers() {
             <div className="search-wrapper">
                 <input className="search" placeholder="search for an item" />
             </div>
+            <div className="btn">
+                <Link className="btn-link" key={gameId} to={`/addOffer/${gameId}`}>
+                    add Offer
+                </Link>
+            </div>
+
 
             {offers.length === 0 ? (
                 <p>No offers found.</p>
