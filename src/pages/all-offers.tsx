@@ -11,24 +11,28 @@ export default function AllOffers() {
 
     const [offers, setOffers] = useState<Offer[]>([]);
     const [gameTitle, setGameTitle] = useState<string>("");
+    const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        async function showOffers() {
-            if (!gameId) return;
+    async function showOffers(search: string) {
+        if (!gameId) return;
 
-            try {
-                const result = await getOffersByGameId(Number(gameId));
-                setOffers(result);
-            } catch {
-                setError("Failed to load offers");
-            } finally {
-                setLoading(false);
-            }
+        setLoading(true);
+        setError(null);
+
+        try {
+            const result = await getOffersByGameId(Number(gameId), search);
+            setOffers(result);
+        } catch {
+            setError("Failed to load offers");
+        } finally {
+            setLoading(false);
         }
+    }
 
-        showOffers();
+    useEffect(() => {
+        showOffers("");
     }, [gameId]);
 
     if (loading) return <p>Loading offers…</p>;
@@ -42,7 +46,7 @@ export default function AllOffers() {
             </header>
 
             <div className="search-wrapper">
-                <input className="search" placeholder="search for an item" />
+                <input className="search" placeholder="search for an item" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { showOffers(search) } }} />
             </div>
             <div className="btn">
                 <Link className="btn-link" key={gameId} to={`/addOffer/${gameId}`}>
