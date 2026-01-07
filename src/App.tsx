@@ -9,6 +9,7 @@ import Login from "../src/pages/login";
 import Register from "../src/pages/register";
 import AllOffers from "../src/pages/all-offers";
 import AddOffer from "../src/pages/add-offer";
+import TradeInventory from "../src/pages/trade-items"
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
         <Route path="/offers/:gameId" element={<AllOffers />} />
 
         <Route path="/addOffer/:gameId" element={<AddOffer />} />
+
+        <Route path="/tradeitems/:offerId" element={<TradeInventory />} />
       </Routes>
     </Router>
   )

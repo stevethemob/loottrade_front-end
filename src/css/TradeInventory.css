@@ -1,0 +1,76 @@
+.items-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.item-card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid transparent;
+}
+
+.item-card.selected {
+  border-color: #4caf50;
+}
+
+.item-info h3 {
+  margin: 0 0 8px 0;
+}
+
+.item-info p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.select-btn {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+}
+
+.item-card.selected .select-btn {
+  background: #f44336;
+}
+
+.submit-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #2196f3;
+  color: white;
+}
+
+.submit-btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+}

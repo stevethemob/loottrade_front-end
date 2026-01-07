@@ -60,7 +60,9 @@ export default function AllOffers() {
             ) : (
                 <div className="offers-list">
                     {offers.map((offer) => (
-                        <OfferCard key={offer.id} offer={offer} />
+                        <Link to={`/tradeitems/${offer.id}`} className="offer-card-link">
+                            <OfferCard key={offer.id} offer={offer} />
+                        </Link>
                     ))}
                 </div>
             )}
