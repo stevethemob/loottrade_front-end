@@ -1,4 +1,5 @@
-import type {allTrades} from "../objects/allTrades";
+import type { allTrades } from "../objects/allTrades";
+import type { trade } from "../objects/trade";
 
 export async function addOffer(offerId: number, itemIds: number[]): Promise<void> {
     const token = localStorage.getItem("token");
@@ -21,7 +22,7 @@ export async function addOffer(offerId: number, itemIds: number[]): Promise<void
     }
 }
 
-export async function GetAllOffersByGameId(gameId: Number){
+export async function GetAllOffersByGameId(gameId: Number) {
     const token = localStorage.getItem("token");
 
     const response = await fetch(`https://localhost:7215/trade/GetAllTradesByGameId/${gameId}`, {
@@ -30,10 +31,22 @@ export async function GetAllOffersByGameId(gameId: Number){
         }
     })
 
-    if (!response.ok){
+    if (!response.ok) {
         throw new Error("Unauthorized.");
     }
 
     const allTrades = await response.json();
     return allTrades;
+}
+
+export async function GetTradeByTradeId(tradeId: number): Promise<trade> {
+    const response = await fetch(`https://localhost:7215/trade/ByTradeId/${tradeId}`);
+
+    if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || "Failed to fetch trade");
+    }
+
+    const data: trade = await response.json();
+    return data;
 }

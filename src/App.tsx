@@ -11,6 +11,7 @@ import AllOffers from "../src/pages/all-offers";
 import AddOffer from "../src/pages/add-offer";
 import TradeInventory from "../src/pages/trade-items";
 import AllTrades from "../src/pages/all-trades";
+import TradeDetail from "./pages/trade-details";
 
 
 function App() {
@@ -38,7 +39,9 @@ function App() {
 
         <Route path="/tradeitems/:offerId" element={<TradeInventory />} />
 
-        <Route path="/AllTrades/:gameId" element={<AllTrades />} />
+        <Route path="/allTrades/:gameId" element={<AllTrades />} />
+
+        <Route path="/tradeDetails/:tradeId" element={<TradeDetail />} />
       </Routes>
     </Router>
   )
