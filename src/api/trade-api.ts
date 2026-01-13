@@ -49,3 +49,19 @@ export async function GetTradeByTradeId(tradeId: number): Promise<trade> {
     const data: trade = await response.json();
     return data;
 }
+
+export async function AcceptTradeByTradeId(tradeId: number) {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(`https://localhost:7215/trade/AcceptTradeByTradeId/${tradeId}`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
+
+    if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || "Failed to accept trade");
+    }
+}
