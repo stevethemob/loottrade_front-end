@@ -1,16 +1,15 @@
-FROM node:20
-
+# Build stage
+FROM node:20 AS build
 WORKDIR /app
 
 COPY package*.json ./
-
-# FIX: remove lock + modules (they will be replaced cleanly)
-RUN rm -f package-lock.json && npm install
-
+RUN npm ci
 COPY . .
+RUN npm run build
 
-# Expose Vite dev port
-EXPOSE 5173
+# Runtime stage
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
 
-# Run Vite dev server
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["nginx", "-g", "daemon off;"]
