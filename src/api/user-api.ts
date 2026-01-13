@@ -1,5 +1,3 @@
-import type { User } from "../objects/user";
-
 export async function registerUser(username: string, password: string, repeatedPassword: string, email: string) {
     const response = await fetch(`https://localhost:7215/user/register`, {
         method: "POST",

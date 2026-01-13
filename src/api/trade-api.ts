@@ -1,4 +1,3 @@
-import type { allTrades } from "../objects/allTrades";
 import type { trade } from "../objects/trade";
 
 export async function addOffer(offerId: number, itemIds: number[]): Promise<void> {
