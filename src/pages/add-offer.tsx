@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { GetInventoryByUserId } from "../api/inventory-api";
 import type { Inventory } from "../objects/inventory";
 import "../css/Inventory.css";
-import { Link } from "react-router-dom";
 import { createOffer } from "../api/offer-api";
 
 export default function Inventory() {

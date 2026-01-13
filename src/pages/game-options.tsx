@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "../css/GameOptions.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";

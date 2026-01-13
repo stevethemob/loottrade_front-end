@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOffersByGameId } from "../api/offer-api";
 import type { Offer } from "../objects/offer";
@@ -10,7 +10,7 @@ export default function AllOffers() {
     const { gameId } = useParams<{ gameId: string }>();
 
     const [offers, setOffers] = useState<Offer[]>([]);
-    const [gameTitle, setGameTitle] = useState<string>("");
+    const [gameTitle] = useState<string>("");
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
