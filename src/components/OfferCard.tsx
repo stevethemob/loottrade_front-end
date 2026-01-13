@@ -1,4 +1,3 @@
-import React from "react";
 import type { Offer } from "../objects/offer";
 import "../css/AllOffers.css"
 

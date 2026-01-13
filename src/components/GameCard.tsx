@@ -1,4 +1,3 @@
-import React from "react";
 import "../css/GameCard.css";
 
 export interface GameCardProps {
