@@ -44,3 +44,19 @@ export async function editItem(item: Item): Promise<void> {
         throw new Error("Failed to update item");
     }
 }
+
+export async function createItem(item: Item): Promise<void> {
+    const token = localStorage.getItem("token");
+    const response = await fetch("https://localhost:7215/item/CreateItem", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(item)
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to create item");
+    }
+}

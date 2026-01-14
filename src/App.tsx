@@ -20,6 +20,7 @@ import EditGame from "../src/pages/edit-game";
 import AllTradesAdmin from "../src/pages/all-trades-admin";
 import AllItemsAdmin from "./pages/all-items-admin";
 import EditItem from "./pages/edit-item";
+import AddItem from "./pages/add-item";
 
 
 function App() {
@@ -66,6 +67,8 @@ function App() {
         <Route path="/AllItemsAdmin/:gameId" element={<AllItemsAdmin />} />
 
         <Route path="/editItem/:itemId" element={<EditItem />} />
+
+        <Route path="/addItem/:gameId" element={<AddItem />} />
       </Routes>
     </Router>
   )
