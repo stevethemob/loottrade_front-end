@@ -42,7 +42,10 @@ export function GamesPage() {
           {games.map((game) => (
             <Link
               key={game.id}
-              to={`/gameOptions/${game.id}`}>
+              to={admin
+                ? `/gameOptionsAdmin/${game.id}`
+                : `/gameOptions/${game.id}`}
+                >
 
               <GameCard key={game.id} title={game.title} />
             </Link>
