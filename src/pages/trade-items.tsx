@@ -16,7 +16,7 @@ export default function TradeInventory() {
     useEffect(() => {
         async function loadInventory() {
             try {
-                const response = await GetInventoryByUserId(1, 1);
+                const response = await GetInventoryByUserId(1);
                 setInventory(response);
             } catch {
                 setError("Failed to load inventory.");

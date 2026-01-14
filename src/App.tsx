@@ -31,7 +31,7 @@ function App() {
 
         <Route path="/gameOptions/:gameId" element={<GameOptions />} />
 
-        <Route path="/inventory/:userId/:gameId" element={<Inventory />} />
+        <Route path="/inventory/:gameId" element={<Inventory />} />
 
         <Route path="/items/:gameId" element={<AllItems />} />
 

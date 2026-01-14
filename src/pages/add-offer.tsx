@@ -3,8 +3,12 @@ import { GetInventoryByUserId } from "../api/inventory-api";
 import type { Inventory } from "../objects/inventory";
 import "../css/Inventory.css";
 import { createOffer } from "../api/offer-api";
+import { useParams } from "react-router-dom";
 
 export default function Inventory() {
+    const { gameId } = useParams();
+    const gameIdNumber = Number(gameId);
+
     const [inventory, setInventory] = useState<Inventory>();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -12,7 +16,7 @@ export default function Inventory() {
     useEffect(() => {
         async function loadInventory() {
             try {
-                const response = await GetInventoryByUserId(1, 1);
+                const response = await GetInventoryByUserId(gameIdNumber);
                 setInventory(response);
             } catch (err) {
                 setError("Failed to load inventory.");

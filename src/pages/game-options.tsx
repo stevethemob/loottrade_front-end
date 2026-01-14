@@ -26,7 +26,7 @@ export default function GameOptions() {
           </Link>
         </button>
         <button className="btn">
-          <Link key={gameIdNumber} to={`/inventory/1/${gameId}`}>
+          <Link key={gameIdNumber} to={`/inventory/${gameId}`}>
             your inventory
           </Link>
         </button>

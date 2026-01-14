@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { GetInventoryByUserId } from "../api/inventory-api";
 import type { Inventory } from "../objects/inventory";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/Inventory.css";
 
 export default function Inventory() {
+  const { gameId } = useParams();
+  const gameIdNumber = Number(gameId);
+
   const [inventory, setInventory] = useState<Inventory>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -11,7 +16,7 @@ export default function Inventory() {
   useEffect(() => {
     async function loadInventory() {
       try {
-        const response = await GetInventoryByUserId(1, 1);
+        const response = await GetInventoryByUserId(gameIdNumber);
         setInventory(response);
       } catch (err) {
         setError("Failed to load inventory.");
@@ -32,7 +37,7 @@ export default function Inventory() {
         <h1>current items</h1>
         <span className="account-link">account</span>
       </header>
-      
+
       <div className="items-grid">
         {inventory?.items.map(item => (
           <div key={item.id} className="item-card">
@@ -44,7 +49,11 @@ export default function Inventory() {
         ))}
       </div>
 
-      <button className="add-items-btn">Add items</button>
+      <button className="add-items-btn">
+        <Link key={gameIdNumber} to={`/items/${gameIdNumber}`}>
+          Add items
+        </Link>
+      </button>
     </div>
   );
 }
