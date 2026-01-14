@@ -4,11 +4,14 @@ import { getAllGames } from "../api/game-api";
 import { type Game } from "../objects/game";
 import GameCard from "../components/GameCard"
 import "../css/GamesPage.css"
+import { isAdmin } from "../logic/auth";
 
 export function GamesPage() {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const admin = isAdmin();
 
   useEffect(() => {
     async function showGames() {
@@ -37,16 +40,21 @@ export function GamesPage() {
       ) : (
         <div className="games-grid">
           {games.map((game) => (
-            <Link 
-              key={game.id} 
+            <Link
+              key={game.id}
               to={`/gameOptions/${game.id}`}>
-                
-            <GameCard key={game.id} title={game.title} />
+
+              <GameCard key={game.id} title={game.title} />
             </Link>
           ))}
         </div>
       )
       }
+      {admin && (
+        <Link to="/games/add" className="add-game-button">
+          + Add Game
+        </Link>
+      )}
     </div>
   )
 }
