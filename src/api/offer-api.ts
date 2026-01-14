@@ -36,3 +36,23 @@ export async function createOffer(itemId: Number) {
 
     return false;
 }
+
+export async function getOffersByGameIdAndUser(gameId: number) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`https://localhost:7215/offer/GetAllOffersByFromSpecificUserByGameId/${gameId}`, {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+
+    return await response.json();
+}
+
+export async function getOfferDetailsByOfferId(offerId: number) {
+    const response = await fetch(`https://localhost:7215/offer/GetOfferDetailsByOfferId/${offerId}`, {
+        method: "GET"
+    })
+
+    return await response.json();
+}

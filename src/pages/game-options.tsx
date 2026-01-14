@@ -11,6 +11,11 @@ export default function GameOptions() {
       <div className="account">account</div>
       <div className="buttons">
         <button className="btn">
+          <Link key={gameIdNumber} to={`/ownOffers/${gameIdNumber}`}>
+            My offers
+          </Link>
+        </button>
+        <button className="btn">
           <Link key={gameIdNumber} to={`/allTrades/${gameIdNumber}`}>
             trade offers
           </Link>
