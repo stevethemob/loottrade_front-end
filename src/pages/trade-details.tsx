@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GetTradeByTradeId, AcceptTradeByTradeId } from "../api/trade-api";
 import type { trade } from "../objects/trade";
 import "../css/AllTrades.css";
+import { isAdmin } from "../logic/auth";
 
 export default function TradeDetail() {
     const { tradeId } = useParams<{ tradeId: string }>();
@@ -14,6 +15,8 @@ export default function TradeDetail() {
     const [accepting, setAccepting] = useState<boolean>(false);
     const [acceptError, setAcceptError] = useState<string | null>(null);
     const [accepted, setAccepted] = useState<boolean>(false);
+
+    const admin = isAdmin();
 
     useEffect(() => {
         async function loadTrade() {
@@ -72,17 +75,19 @@ export default function TradeDetail() {
 
             {acceptError && <p className="error">{acceptError}</p>}
 
-            <button
-                className="accept-trade-btn"
-                onClick={handleAcceptTrade}
-                disabled={accepting || accepted}
-            >
-                {accepted
-                    ? "Trade Accepted"
-                    : accepting
-                        ? "Accepting..."
-                        : "Accept Trade"}
-            </button>
+            {!admin &&
+                <button
+                    className="accept-trade-btn"
+                    onClick={handleAcceptTrade}
+                    disabled={accepting || accepted}
+                >
+                    {accepted
+                        ? "Trade Accepted"
+                        : accepting
+                            ? "Accepting..."
+                            : "Accept Trade"}
+                </button>
+            }
 
             <div className="trades-list">
                 <div className="trade-card">

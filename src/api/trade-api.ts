@@ -1,4 +1,5 @@
 import type { trade } from "../objects/trade";
+import type { TradeAdmin } from "../objects/allTradesAdmin";
 
 export async function addOffer(offerId: number, itemIds: number[]): Promise<void> {
     const token = localStorage.getItem("token");
@@ -64,4 +65,24 @@ export async function AcceptTradeByTradeId(tradeId: number) {
         const text = await response.text();
         throw new Error(text || "Failed to accept trade");
     }
+}
+
+export async function getAllTradesByGameId(gameId: number): Promise<TradeAdmin[]> {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+        `https://localhost:7215/trade/GetAllTradesByGameIdAdmin/${gameId}`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || "Failed to load trades");
+    }
+
+    return response.json();
 }
