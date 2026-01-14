@@ -1,0 +1,110 @@
+/* ItemDetails.css */
+
+.item-details-container {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+}
+
+.item-details-card {
+    background-color: #7a7c7f;
+    border-radius: 12px;
+    padding: 24px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-details-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.item-details-card h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.item-description {
+    font-size: 14px;
+    color: #ececec;
+    background-color: #616365;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.item-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.edit-btn,
+.save-btn,
+.cancel-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.edit-btn {
+    background-color: #bfbfbf;
+}
+
+.save-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #e53935;
+    color: white;
+}
+
+.edit-btn:hover,
+.save-btn:hover,
+.cancel-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Edit Item Form */
+.item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ececec;
+}
+
+.item-form input,
+.item-form textarea {
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+}
+
+.item-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}

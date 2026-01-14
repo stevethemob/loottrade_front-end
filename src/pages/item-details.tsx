@@ -1,42 +1,52 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import type { Item } from "../objects/item";
 import { getItem } from "../api/item-api";
-import { type Item } from "../objects/item";
+import "../css/ItemDetails.css";
 
-const Home: React.FC = () => {
-    const [item, setItem] = useState<Item>();
+export default function ItemDetails() {
+    const { itemId } = useParams();
+    const navigate = useNavigate();
+    const itemIdNumber = Number(itemId);
+
+    const [item, setItem] = useState<Item | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        getItem(1)
-            .then((res) => {
-                setItem(res);
+        async function loadItem() {
+            try {
+                const result = await getItem(itemIdNumber);
+                setItem(result);
+            } catch {
+                setError("Failed to load item");
+            } finally {
                 setLoading(false);
-            })
-            .catch((err) => {
-                setError(err.message);
-                setLoading(false);
-            });
-    }, []);
+            }
+        }
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+        loadItem();
+    }, [itemIdNumber]);
+
+    if (loading) return <p>Loading item...</p>;
+    if (error) return <p style={{ color: "red" }}>{error}</p>;
+    if (!item) return <p>Item not found</p>;
 
     return (
-        <main style={{ padding: "1rem" }}>
-            <h1>Items</h1>
-            <div style={{ display: "grid", gap: "1rem" }}>
-                {/* {items.map((item) => (
-            <>
-            <h3>{item.name}</h3>
-            <p>{item.rarity}</p>
-            </>
-        ))} */
-                    <h3>{item?.name}</h3>}
-                <p>{item?.description}</p>
-            </div>
-        </main>
-    );
-};
+        <div className="item-details-container">
+            <div className="item-details-card">
+                <h1>{item.name}</h1>
+                <p className="item-description">{item.description}</p>
 
-export default Home;
+                <div className="item-actions">
+                    <button
+                        className="edit-btn"
+                        onClick={() => navigate(`/editItem/${item.id}`)}
+                    >
+                        Edit
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
