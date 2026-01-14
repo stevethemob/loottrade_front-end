@@ -51,7 +51,7 @@ export function GamesPage() {
       )
       }
       {admin && (
-        <Link to="/games/add" className="add-game-button">
+        <Link to="/AddGame" className="add-game-button">
           + Add Game
         </Link>
       )}

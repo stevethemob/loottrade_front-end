@@ -14,6 +14,7 @@ import AllTrades from "../src/pages/all-trades";
 import TradeDetail from "./pages/trade-details";
 import OwnOffers from "../src/pages/own-offers";
 import OfferDetails from "./pages/offer-details";
+import AddGame from "../src/pages/add-game";
 
 
 function App() {
@@ -48,6 +49,8 @@ function App() {
         <Route path="/ownOffers/:gameId" element={<OwnOffers />} />
 
         <Route path="/offerDetails/:offerId" element={<OfferDetails />} />
+
+        <Route path="/addGame" element={<AddGame />} />
       </Routes>
     </Router>
   )
