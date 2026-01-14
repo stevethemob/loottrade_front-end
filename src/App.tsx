@@ -16,6 +16,7 @@ import OwnOffers from "../src/pages/own-offers";
 import OfferDetails from "./pages/offer-details";
 import AddGame from "../src/pages/add-game";
 import GameOptionsAdmin from "./pages/game-options-admin";
+import EditGame from "../src/pages/edit-game";
 
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
         <Route path="/addGame" element={<AddGame />} />
 
         <Route path="/gameOptionsAdmin/:gameId" element={<GameOptionsAdmin />} />
+
+        <Route path="/editGame/:gameId" element={<EditGame />} />
       </Routes>
     </Router>
   )
