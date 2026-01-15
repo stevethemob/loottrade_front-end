@@ -11,8 +11,8 @@ export async function addOffer(offerId: number, itemIds: number[]): Promise<void
             "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
-            offerId: offerId,
-            itemIds: itemIds
+            'OfferId': offerId,
+            'ItemIds': itemIds
         })
     });
 
