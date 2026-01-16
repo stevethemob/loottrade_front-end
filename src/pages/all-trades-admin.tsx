@@ -44,7 +44,7 @@ export default function AllTradesAdmin() {
         {trades.map((trade) => (
           <Link
             key={trade.tradeId}
-            to={`/tradeDetails/${trade.tradeId}`}
+            to={`/tradeDetails/${gameId}/${trade.tradeId}`}
             className="trade-card"
           >
             <div className="trade-id">

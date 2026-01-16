@@ -48,7 +48,7 @@ export default function UserOffers() {
                 <div className="offers-list">
                     {offers.map((offer) => (
                         <Link
-                            to={`/offerDetails/${offer.id}`}
+                            to={`/offerDetails/${gameId}/${offer.id}`}
                             className="offer-card-link"
                             key={offer.id}
                         >

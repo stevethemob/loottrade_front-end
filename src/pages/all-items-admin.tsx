@@ -40,7 +40,7 @@ export default function AllItemsAdmin() {
                         <div
                             key={item.id}
                             className="item-card clickable"
-                            onClick={() => navigate(`/item/${item.id}`)}
+                            onClick={() => navigate(`/item/${gameId}/${item.id}`)}
                         >
                             <span className="item-name">{item.name}</span>
                         </div>

@@ -34,7 +34,7 @@ function App() {
 
         <Route path="/games" element={<GamesPage />} />
 
-        <Route path="/item/:itemId" element={<ItemDetails />} />
+        <Route path="/item/:gameId/:itemId" element={<ItemDetails />} />
 
         <Route path="/gameOptions/:gameId" element={<GameOptions />} />
 
@@ -46,15 +46,15 @@ function App() {
 
         <Route path="/addOffer/:gameId" element={<AddOffer />} />
 
-        <Route path="/tradeitems/:offerId" element={<TradeInventory />} />
+        <Route path="/tradeitems/:gameId/:offerId" element={<TradeInventory />} />
 
         <Route path="/allTrades/:gameId" element={<AllTrades />} />
 
-        <Route path="/tradeDetails/:tradeId" element={<TradeDetail />} />
+        <Route path="/tradeDetails/:gameId/:tradeId" element={<TradeDetail />} />
 
         <Route path="/ownOffers/:gameId" element={<OwnOffers />} />
 
-        <Route path="/offerDetails/:offerId" element={<OfferDetails />} />
+        <Route path="/offerDetails/:gameId/:offerId" element={<OfferDetails />} />
 
         <Route path="/addGame" element={<AddGame />} />
 
@@ -66,7 +66,7 @@ function App() {
 
         <Route path="/AllItemsAdmin/:gameId" element={<AllItemsAdmin />} />
 
-        <Route path="/editItem/:itemId" element={<EditItem />} />
+        <Route path="/editItem/:gameId/:itemId" element={<EditItem />} />
 
         <Route path="/addItem/:gameId" element={<AddItem />} />
       </Routes>
