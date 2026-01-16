@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getGameById, editGame } from "../api/game-api";
-import "../css/AddGame.css"; // reuse AddGame styles
+import "../css/AddGame.css";
+import BackButton from "../components/BackButton";
 
 export default function EditGame() {
     const { gameId } = useParams();
@@ -53,6 +54,7 @@ export default function EditGame() {
 
     return (
         <div className="add-game-page">
+            <BackButton to={`/gameOptionsAdmin/${gameId}`} />
             <h1 className="page-title">Edit Game</h1>
 
             <form className="add-game-box" onSubmit={handleSubmit}>

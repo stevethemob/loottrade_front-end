@@ -3,8 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import type { Item } from "../objects/item";
 import { getItem } from "../api/item-api";
 import "../css/ItemDetails.css";
+import BackButton from "../components/BackButton";
 
 export default function ItemDetails() {
+    const { gameId } = useParams();
     const { itemId } = useParams();
     const navigate = useNavigate();
     const itemIdNumber = Number(itemId);
@@ -34,6 +36,7 @@ export default function ItemDetails() {
 
     return (
         <div className="item-details-container">
+            <BackButton to={`/AllItemsAdmin/${gameId}`} />
             <div className="item-details-card">
                 <h1>{item.name}</h1>
                 <p className="item-description">{item.description}</p>
@@ -41,7 +44,7 @@ export default function ItemDetails() {
                 <div className="item-actions">
                     <button
                         className="edit-btn"
-                        onClick={() => navigate(`/editItem/${item.id}`)}
+                        onClick={() => navigate(`/editItem/${gameId}/${item.id}`)}
                     >
                         Edit
                     </button>

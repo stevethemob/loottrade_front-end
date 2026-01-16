@@ -4,8 +4,10 @@ import { GetInventoryByUserId } from "../api/inventory-api";
 import { addOffer } from "../api/trade-api";
 import type { Inventory } from "../objects/inventory";
 import "../css/TradeInventory.css";
+import BackButton from "../components/BackButton";
 
 export default function TradeInventory() {
+    const { gameId } = useParams<{ gameId: string }>();
     const { offerId } = useParams<{ offerId: string }>();
 
     const [inventory, setInventory] = useState<Inventory>();
@@ -53,6 +55,7 @@ export default function TradeInventory() {
 
     return (
         <div className="items-page">
+            <BackButton to={`/offers/${gameId}`} />
             <header className="items-header">
                 <h1>Select items for trade</h1>
                 <span className="account-link">account</span>

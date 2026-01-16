@@ -4,6 +4,7 @@ import type { Item } from "../objects/item";
 import { AddItemToInventoryByUserIdAndItemId } from "../api/inventory-api";
 import { useParams } from "react-router-dom";
 import "../css/AllItems.css";
+import BackButton from "../components/BackButton";
 
 
 export default function items() {
@@ -44,6 +45,7 @@ export default function items() {
 
     return (
         <div>
+            <BackButton to={`/inventory/${gameId}`} />
             <h1>All items</h1>
             <div className="item-grid-container">
                 <div className="item-grid">

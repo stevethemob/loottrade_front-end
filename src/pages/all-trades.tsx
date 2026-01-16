@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { GetAllOffersByGameId } from "../api/trade-api";
 import type { allTrades } from "../objects/allTrades";
 import "../css/AllTrades.css";
+import BackButton from "../components/BackButton";
 
 export default function AllTrades() {
     const { gameId } = useParams<{ gameId: string }>();
@@ -38,6 +39,7 @@ export default function AllTrades() {
 
     return (
         <div className="trades-page">
+            <BackButton to={`/gameOptions/${gameId}`} />
             <header className="trades-header">
                 <h1>Trades</h1>
                 <div className="account">account</div>

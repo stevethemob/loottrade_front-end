@@ -4,6 +4,7 @@ import type { Inventory } from "../objects/inventory";
 import "../css/Inventory.css";
 import { createOffer } from "../api/offer-api";
 import { useParams } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 export default function Inventory() {
     const { gameId } = useParams();
@@ -43,6 +44,7 @@ export default function Inventory() {
 
     return (
         <div className="items-page">
+            <BackButton to={`/offers/${gameId}`} />
             <header className="items-header">
                 <h1>current items</h1>
                 <span className="account-link">account</span>

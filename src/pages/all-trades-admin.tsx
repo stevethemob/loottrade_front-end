@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getAllTradesByGameId } from "../api/trade-api";
 import type { TradeAdmin } from "../objects/allTradesAdmin";
 import "../css/AllTrades.css";
+import BackButton from "../components/BackButton";
 
 export default function AllTradesAdmin() {
   const { gameId } = useParams<{ gameId: string }>();
@@ -36,6 +37,7 @@ export default function AllTradesAdmin() {
 
   return (
     <div className="trades-page">
+      <BackButton to={`/gameOptionsAdmin/${gameId}`} />
       <header className="trades-header">
         <h1>Trades for Game #{gameId}</h1>
       </header>

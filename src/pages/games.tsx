@@ -5,6 +5,7 @@ import { type Game } from "../objects/game";
 import GameCard from "../components/GameCard"
 import "../css/GamesPage.css"
 import { isAdmin } from "../logic/auth";
+import BackButton from "../components/BackButton";
 
 export function GamesPage() {
   const [games, setGames] = useState<Game[]>([]);
@@ -34,6 +35,7 @@ export function GamesPage() {
 
   return (
     <div className="games-page">
+      <BackButton to={`/login`} />
       <h1 className="page-title">Games</h1>
       {games.length === 0 ? (
         <p>No games found.</p>

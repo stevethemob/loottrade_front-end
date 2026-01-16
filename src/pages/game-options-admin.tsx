@@ -1,6 +1,7 @@
 import "../css/GameOptions.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 export default function GameOptionsAdmin() {
     const { gameId } = useParams();
@@ -8,6 +9,7 @@ export default function GameOptionsAdmin() {
 
     return (
         <div>
+            <BackButton to={`/games`} />
             <div className="account">account</div>
             <div className="buttons">
                 <button className="btn">

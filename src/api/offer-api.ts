@@ -56,3 +56,21 @@ export async function getOfferDetailsByOfferId(offerId: number) {
 
     return await response.json();
 }
+
+export async function DeleteOfferById(offerId: number) {
+    const token = localStorage.getItem("token");
+            const response = await fetch(
+                `https://localhost:7215/offer/DeleteByOfferId/${offerId}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to delete offer");
+            }
+
+}

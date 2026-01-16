@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import type { Item } from "../objects/item";
 import { createItem } from "../api/item-api";
 import "../css/AddItem.css";
+import BackButton from "../components/BackButton";
 
 export default function AddItem() {
     const { gameId } = useParams();
@@ -42,6 +43,7 @@ export default function AddItem() {
 
     return (
         <div className="add-item-page">
+            <BackButton to={`/gameOptionsAdmin/${gameId}`} />
             <h1 className="page-title">Add Item</h1>
 
             <form className="add-item-box" onSubmit={handleSubmit}>

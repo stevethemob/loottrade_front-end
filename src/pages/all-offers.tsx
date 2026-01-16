@@ -5,6 +5,7 @@ import type { Offer } from "../objects/offer";
 import OfferCard from "../components/OfferCard";
 import "../css/AllOffers.css";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 export default function AllOffers() {
     const { gameId } = useParams<{ gameId: string }>();
@@ -40,6 +41,7 @@ export default function AllOffers() {
 
     return (
         <div className="offers-page">
+            <BackButton to={`/gameOptions/${gameId}`} />
             <header className="offers-header">
                 <h1 className="game-title">{gameTitle}</h1>
                 <div className="account">account</div>

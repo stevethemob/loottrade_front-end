@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getOfferDetailsByOfferId } from "../api/offer-api";
+import { DeleteOfferById } from "../api/offer-api";
 import type { Offer } from "../objects/offer";
+import BackButton from "../components/BackButton";
 
 export default function OfferDetails() {
+    const { gameId } = useParams();
     const { offerId } = useParams<{ offerId: string }>();
+    const offerIdNumber = Number(offerId);
     const navigate = useNavigate();
 
     const [offer, setOffer] = useState<Offer | null>(null);
@@ -42,23 +46,10 @@ export default function OfferDetails() {
         setRemoving(true);
 
         try {
-            const token = localStorage.getItem("token");
-            const response = await fetch(
-                `https://localhost:7215/offer/DeleteByOfferId/${offerId}`,
-                {
-                    method: "DELETE",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error("Failed to delete offer");
-            }
+            DeleteOfferById(offerIdNumber);
 
             alert("Offer deleted successfully!");
-            navigate(-1); // Go back to the previous page (UserOffers)
+            navigate(-1);
         } catch (err) {
             alert("Failed to remove offer");
         } finally {
@@ -72,6 +63,7 @@ export default function OfferDetails() {
 
     return (
         <div className="offer-details-page" style={{ padding: "24px" }}>
+            <BackButton to={`/ownOffers/${gameId}`} />
             <h1>{offer.itemName}</h1>
             <p><strong>Description:</strong> {offer.itemDescription}</p>
             <button

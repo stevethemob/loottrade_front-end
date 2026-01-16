@@ -4,6 +4,7 @@ import { getOffersByGameIdAndUser } from "../api/offer-api";
 import type { Offer } from "../objects/offer";
 import OfferCard from "../components/OfferCard";
 import "../css/AllOffers.css";
+import BackButton from "../components/BackButton";
 
 export default function UserOffers() {
     const { gameId } = useParams<{ gameId: string }>();
@@ -37,6 +38,7 @@ export default function UserOffers() {
 
     return (
         <div className="offers-page">
+            <BackButton to={`/gameOptions/${gameId}`} />
             <header className="offers-header">
                 <h1 className="game-title">Your Offers</h1>
                 <div className="account">account</div>

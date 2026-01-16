@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getAllItems } from "../api/item-api";
 import type { Item } from "../objects/item";
 import "../css/AllItems.css";
+import BackButton from "../components/BackButton";
 
 export default function AllItemsAdmin() {
     const { gameId } = useParams();
@@ -33,6 +34,7 @@ export default function AllItemsAdmin() {
 
     return (
         <div>
+            <BackButton to={`/gameOptionsAdmin/${gameId}`} />
             <h1>All items</h1>
             <div className="item-grid-container">
                 <div className="item-grid">

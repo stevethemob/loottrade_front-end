@@ -4,8 +4,10 @@ import { GetTradeByTradeId, AcceptTradeByTradeId } from "../api/trade-api";
 import type { trade } from "../objects/trade";
 import "../css/AllTrades.css";
 import { isAdmin } from "../logic/auth";
+import BackButton from "../components/BackButton";
 
 export default function TradeDetail() {
+    const { gameId } = useParams<{ gameId: string }>();
     const { tradeId } = useParams<{ tradeId: string }>();
 
     const [tradeData, setTradeData] = useState<trade | null>(null);
@@ -68,6 +70,13 @@ export default function TradeDetail() {
 
     return (
         <div className="trades-page">
+            {admin &&
+                <BackButton to={`/allTradesAdmin/${gameId}`} />
+            }
+
+            {!admin &&
+                <BackButton to={`/allTrades/${gameId}`} />
+            }
             <header className="trades-header">
                 <h1>Trade #{tradeData.id}</h1>
                 <div className="account">{tradeData.traderUser}</div>
@@ -88,7 +97,7 @@ export default function TradeDetail() {
                             : "Accept Trade"}
                 </button>
             }
-            
+
             <div className="trade-card offered-item">
                 <h2>Item Offered</h2>
                 <p>
