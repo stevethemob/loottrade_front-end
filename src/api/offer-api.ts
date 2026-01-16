@@ -1,7 +1,8 @@
 import type { Offer } from "../objects/offer";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function getOffersByGameId(gameId: number, search: string): Promise<Offer[]> {
-    let url = `https://localhost:7215/offer/`;
+    let url = `${API_BASE_URL}/offer/`;
 
     if (search && search.trim() !== "") {
         url += `Search/${gameId}/${search}`
@@ -21,7 +22,7 @@ export async function getOffersByGameId(gameId: number, search: string): Promise
 
 export async function createOffer(itemId: Number) {
     const token = localStorage.getItem("token");
-    const response = await fetch(`https://localhost:7215/offer/ByItemId`, {
+    const response = await fetch(`${API_BASE_URL}/offer/ByItemId`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -39,7 +40,7 @@ export async function createOffer(itemId: Number) {
 
 export async function getOffersByGameIdAndUser(gameId: number) {
     const token = localStorage.getItem("token");
-    const response = await fetch(`https://localhost:7215/offer/GetAllOffersByFromSpecificUserByGameId/${gameId}`, {
+    const response = await fetch(`${API_BASE_URL}/offer/GetAllOffersByFromSpecificUserByGameId/${gameId}`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -50,7 +51,7 @@ export async function getOffersByGameIdAndUser(gameId: number) {
 }
 
 export async function getOfferDetailsByOfferId(offerId: number) {
-    const response = await fetch(`https://localhost:7215/offer/GetOfferDetailsByOfferId/${offerId}`, {
+    const response = await fetch(`${API_BASE_URL}/offer/GetOfferDetailsByOfferId/${offerId}`, {
         method: "GET"
     })
 
@@ -60,7 +61,7 @@ export async function getOfferDetailsByOfferId(offerId: number) {
 export async function DeleteOfferById(offerId: number) {
     const token = localStorage.getItem("token");
             const response = await fetch(
-                `https://localhost:7215/offer/DeleteByOfferId/${offerId}`,
+                `${API_BASE_URL}/offer/DeleteByOfferId/${offerId}`,
                 {
                     method: "DELETE",
                     headers: {

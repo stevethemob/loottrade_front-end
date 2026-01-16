@@ -1,10 +1,11 @@
 import type { Inventory } from '../objects/inventory'
 import type { Item } from '../objects/item';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function GetInventoryByUserId(gameId: number): Promise<Inventory> {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`https://localhost:7215/inventory/${gameId}`, {
+    const response = await fetch(`${API_BASE_URL}/inventory/${gameId}`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -26,7 +27,7 @@ export async function GetInventoryByUserId(gameId: number): Promise<Inventory> {
 
 export async function AddItemToInventoryByUserIdAndItemId(itemId: number): Promise<boolean> {
     const token = localStorage.getItem("token");
-    const response = await fetch(`https://localhost:7215/inventory/${itemId}`, {
+    const response = await fetch(`${API_BASE_URL}/inventory/${itemId}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

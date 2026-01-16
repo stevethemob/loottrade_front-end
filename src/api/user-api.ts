@@ -1,5 +1,7 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export async function registerUser(username: string, password: string, repeatedPassword: string, email: string) {
-    const response = await fetch(`https://localhost:7215/user/register`, {
+    const response = await fetch(`${API_BASE_URL}/user/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -37,7 +39,7 @@ export async function registerUser(username: string, password: string, repeatedP
 }
 
 export async function login(username: string, password: string) {
-    const response = await fetch(`https://localhost:7215/user/login`, {
+    const response = await fetch(`${API_BASE_URL}/user/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -1,10 +1,11 @@
 import type { trade } from "../objects/trade";
 import type { TradeAdmin } from "../objects/allTradesAdmin";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function addOffer(offerId: number, itemIds: number[]): Promise<void> {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("https://localhost:7215/trade/AddTradeOffer", {
+    const response = await fetch(`${API_BASE_URL}/trade/AddTradeOffer`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -25,7 +26,7 @@ export async function addOffer(offerId: number, itemIds: number[]): Promise<void
 export async function GetAllOffersByGameId(gameId: Number) {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`https://localhost:7215/trade/GetAllTradesByGameId/${gameId}`, {
+    const response = await fetch(`${API_BASE_URL}/trade/GetAllTradesByGameId/${gameId}`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
@@ -40,7 +41,7 @@ export async function GetAllOffersByGameId(gameId: Number) {
 }
 
 export async function GetTradeByTradeId(tradeId: number): Promise<trade> {
-    const response = await fetch(`https://localhost:7215/trade/ByTradeId/${tradeId}`);
+    const response = await fetch(`${API_BASE_URL}/trade/ByTradeId/${tradeId}`);
 
     if (!response.ok) {
         const text = await response.text();
@@ -54,7 +55,7 @@ export async function GetTradeByTradeId(tradeId: number): Promise<trade> {
 export async function AcceptTradeByTradeId(tradeId: number) {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`https://localhost:7215/trade/AcceptTradeByTradeId/${tradeId}`, {
+    const response = await fetch(`${API_BASE_URL}/trade/AcceptTradeByTradeId/${tradeId}`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -71,7 +72,7 @@ export async function getAllTradesByGameId(gameId: number): Promise<TradeAdmin[]
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-        `https://localhost:7215/trade/GetAllTradesByGameIdAdmin/${gameId}`,
+        `${API_BASE_URL}/trade/GetAllTradesByGameIdAdmin/${gameId}`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,

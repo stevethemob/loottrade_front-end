@@ -1,7 +1,8 @@
 import type { Item } from '../objects/item';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function getItem(itemId: number): Promise<Item> {
-    const response = await fetch(`https://localhost:7215/item/ByItemId/${itemId}`);
+    const response = await fetch(`${API_BASE_URL}/item/ByItemId/${itemId}`);
 
     if (!response.ok) {
         throw new Error("Failed to get Item");
@@ -14,7 +15,7 @@ export async function getItem(itemId: number): Promise<Item> {
 
 export async function getAllItems(gameId: number): Promise<Item[]> {
     const token = localStorage.getItem("token");
-    const response = await fetch(`https://localhost:7215/item/ByGame/${gameId}`, {
+    const response = await fetch(`${API_BASE_URL}/item/ByGame/${gameId}`, {
         headers: {
             "Authorization": `Bearer ${token}`
         }
@@ -31,7 +32,7 @@ export async function getAllItems(gameId: number): Promise<Item[]> {
 export async function editItem(item: Item): Promise<void> {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("https://localhost:7215/item/editItem", {
+    const response = await fetch(`${API_BASE_URL}/item/editItem`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -47,7 +48,7 @@ export async function editItem(item: Item): Promise<void> {
 
 export async function createItem(item: Item): Promise<void> {
     const token = localStorage.getItem("token");
-    const response = await fetch("https://localhost:7215/item/CreateItem", {
+    const response = await fetch(`${API_BASE_URL}/item/CreateItem`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
