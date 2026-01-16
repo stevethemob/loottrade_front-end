@@ -26,7 +26,7 @@
 .add-game-button {
     margin-top: 100px;
     padding: 0.5rem 1rem;
-    background-color: #565a5d;
+    background-color: #2e7d32;
     color: white;
     border-radius: 6px;
     text-decoration: none;
@@ -34,5 +34,5 @@
 }
 
 .add-game-button:hover {
-    background-color: #565a5d;
+    background-color: #256528;
 }

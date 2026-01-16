@@ -88,30 +88,29 @@ export default function TradeDetail() {
                             : "Accept Trade"}
                 </button>
             }
+            
+            <div className="trade-card offered-item">
+                <h2>Item Offered</h2>
+                <p>
+                    <strong>{tradeData.itemOffer.name}</strong>
+                </p>
+                <p>{tradeData.itemOffer.description}</p>
+            </div>
 
-            <div className="trades-list">
-                <div className="trade-card">
-                    <h2>Item Offered</h2>
-                    <p>
-                        <strong>{tradeData.itemOffer.name}</strong>
-                    </p>
-                    <p>{tradeData.itemOffer.description}</p>
-                </div>
-
-                <div className="trade-card">
-                    <h2>Trade Offers</h2>
-                    {tradeData.tradeOffers.length > 0 ? (
-                        tradeData.tradeOffers.map(item => (
-                            <div key={item.id} className="trade-item">
-                                <strong>{item.name}</strong>
-                                <p>{item.description}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No items offered in return.</p>
-                    )}
-                </div>
+            <div className="trade-card requested-items">
+                <h2>Trade Offers</h2>
+                {tradeData.tradeOffers.length > 0 ? (
+                    tradeData.tradeOffers.map((item) => (
+                        <div key={item.id} className="trade-item">
+                            <strong>{item.name}</strong>
+                            <p>{item.description}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>No items offered in return.</p>
+                )}
             </div>
         </div>
+
     );
 }

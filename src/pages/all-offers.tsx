@@ -48,11 +48,13 @@ export default function AllOffers() {
             <div className="search-wrapper">
                 <input className="search" placeholder="search for an item" value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { showOffers(search) } }} />
             </div>
-            <div className="btn">
-                <Link className="btn-link" key={gameId} to={`/addOffer/${gameId}`}>
-                    add Offer
-                </Link>
-            </div>
+            <Link
+                key={gameId}
+                to={`/addOffer/${gameId}`}
+                className="add-offer-btn"
+            >
+                Add Offer
+            </Link>
 
 
             {offers.length === 0 ? (

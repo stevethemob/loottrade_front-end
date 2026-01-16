@@ -26,14 +26,15 @@
   padding: 10px;
   border-radius: 6px;
   border: none;
-  background-color: #565a5d;
+  background-color: #2e7d32;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
 .add-game-box button:hover {
-  background-color: #4c5053;
+  background-color: #256528;
+  
 }
 
 .error-text {
