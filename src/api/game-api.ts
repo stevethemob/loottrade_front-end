@@ -42,7 +42,7 @@ export async function editGame(gameId: number, gameTitle: string) {
 
 export async function getGameById(gameId: number) {
     const token = localStorage.getItem("token");
-    const response = await fetch(`${API_BASE_URL}}/game/${gameId}`, {
+    const response = await fetch(`${API_BASE_URL}/game/${gameId}`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`
