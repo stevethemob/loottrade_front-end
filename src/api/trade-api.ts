@@ -1,6 +1,6 @@
 import type { trade } from "../objects/trade";
 import type { TradeAdmin } from "../objects/allTradesAdmin";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = window.__ENV__.VITE_API_BASE_URL;
 
 export async function addOffer(offerId: number, itemIds: number[]): Promise<void> {
     const token = localStorage.getItem("token");

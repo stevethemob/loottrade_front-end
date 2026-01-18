@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = window.__ENV__.VITE_API_BASE_URL;
 
 export async function registerUser(username: string, password: string, repeatedPassword: string, email: string) {
     const response = await fetch(`${API_BASE_URL}/user/register`, {
