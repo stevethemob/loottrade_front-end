@@ -13,10 +13,6 @@ export async function getOffersByGameId(gameId: number, search: string): Promise
 
     const response = await fetch(url);
 
-    if (!response.ok) {
-        throw new Error("Failed to get Item");
-    }
-
     return await response.json();
 }
 
@@ -60,18 +56,18 @@ export async function getOfferDetailsByOfferId(offerId: number) {
 
 export async function DeleteOfferById(offerId: number) {
     const token = localStorage.getItem("token");
-            const response = await fetch(
-                `${API_BASE_URL}/offer/DeleteByOfferId/${offerId}`,
-                {
-                    method: "DELETE",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
+    const response = await fetch(
+        `${API_BASE_URL}/offer/DeleteByOfferId/${offerId}`,
+        {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
 
-            if (!response.ok) {
-                throw new Error("Failed to delete offer");
-            }
+    if (!response.ok) {
+        throw new Error("Failed to delete offer");
+    }
 
 }
