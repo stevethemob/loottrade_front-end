@@ -56,12 +56,7 @@ export default function AllOffers() {
                 className="add-offer-btn"
             >
                 Add Offer
-            </Link>
-
-
-            {offers.length === 0 ? (
-                <p>No offers found.</p>
-            ) : (
+            </Link>(
                 <div className="offers-list">
                     {offers.map((offer) => (
                         <Link to={`/tradeitems/${gameId}/${offer.id}`} className="offer-card-link">
@@ -69,7 +64,7 @@ export default function AllOffers() {
                         </Link>
                     ))}
                 </div>
-            )}
+            )
         </div>
     );
 }
