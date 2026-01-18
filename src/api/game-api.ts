@@ -52,5 +52,3 @@ export async function getGameById(gameId: number) {
     const game = await response.json();
     return game as Game;
 }
-
-//just to make sure everything is updated
