@@ -1,5 +1,5 @@
 import type { Game } from '../objects/game'
-const API_BASE_URL = window.__ENV__.VITE_API_BASE_URL;
+const API_BASE_URL = window.ENV.VITE_API_BASE_URL;
 
 export async function getAllGames(): Promise<Game[]> {
     const response = await fetch(`${API_BASE_URL}/game/`);
@@ -14,7 +14,7 @@ export async function getAllGames(): Promise<Game[]> {
 
 export async function addGame(gameTitle: string) {
     const token = localStorage.getItem("token");
-    const response = await fetch(`${API_BASE_URL}/game/${gameTitle}`, {
+    const response = await fetch(`${window.ENV.VITE_API_BASE_URL}/game/${gameTitle}`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`

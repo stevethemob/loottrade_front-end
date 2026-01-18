@@ -1,5 +1,5 @@
 interface Window {
-  __ENV__: {
+  ENV: {
     VITE_API_BASE_URL: string;
   };
 }
