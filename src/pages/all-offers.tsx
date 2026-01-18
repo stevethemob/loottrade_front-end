@@ -56,15 +56,15 @@ export default function AllOffers() {
                 className="add-offer-btn"
             >
                 Add Offer
-            </Link>(
-                <div className="offers-list">
-                    {offers.map((offer) => (
-                        <Link to={`/tradeitems/${gameId}/${offer.id}`} className="offer-card-link">
-                            <OfferCard key={offer.id} offer={offer} />
-                        </Link>
-                    ))}
-                </div>
-            )
+            </Link>
+            <div className="offers-list">
+                {offers.map((offer) => (
+                    <Link to={`/tradeitems/${gameId}/${offer.id}`} className="offer-card-link">
+                        <OfferCard key={offer.id} offer={offer} />
+                    </Link>
+                ))}
+            </div>
+
         </div>
     );
 }
