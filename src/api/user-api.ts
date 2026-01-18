@@ -1,7 +1,7 @@
 const API_BASE_URL = window.__ENV__.VITE_API_BASE_URL;
 
 export async function registerUser(username: string, password: string, repeatedPassword: string, email: string) {
-    const response = await fetch(`http/localhost:8080/user/register`, {
+    const response = await fetch(`http://localhost:8080/user/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
