@@ -1,5 +1,5 @@
 import type { Game } from '../objects/game'
-const API_BASE_URL = import.meta.env.BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function getAllGames(): Promise<Game[]> {
     const response = await fetch(`${API_BASE_URL}/game/`);
