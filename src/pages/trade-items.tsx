@@ -8,6 +8,7 @@ import BackButton from "../components/BackButton";
 
 export default function TradeInventory() {
     const { gameId } = useParams<{ gameId: string }>();
+    const gameIdNumber = Number(gameId);
     const { offerId } = useParams<{ offerId: string }>();
 
     const [inventory, setInventory] = useState<Inventory>();
@@ -18,7 +19,7 @@ export default function TradeInventory() {
     useEffect(() => {
         async function loadInventory() {
             try {
-                const response = await GetInventoryByUserId(1);
+                const response = await GetInventoryByUserId(gameIdNumber);
                 setInventory(response);
             } catch {
                 setError("Failed to load inventory.");
@@ -44,7 +45,7 @@ export default function TradeInventory() {
         try {
             await addOffer(Number(offerId), selectedItemIds);
             alert("Items added to trade!");
-            setSelectedItemIds([]); // optional: clear selection after success
+            setSelectedItemIds([]);
         } catch (err: any) {
             alert("Failed to add items: " + err.message);
         }
